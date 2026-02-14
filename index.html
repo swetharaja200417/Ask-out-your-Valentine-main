@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine's Day 💖</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<style>
+.gradient-background {
+  background: linear-gradient(180deg, #ffd0e5 0%, #ffe8f2 36%, #ffffff 100%);
+  min-height: 100vh;
+}
+.bounce { animation: bounce 2s ease infinite; }
+@keyframes bounce {
+  0%,20%,50%,80%,100% { transform: translateY(0); }
+  40% { transform: translateY(-20px); }
+  60% { transform: translateY(-10px); }
+}
+#prosText { transition: opacity 0.3s ease-in-out; }
+</style>
+</head>
+
+<body class="gradient-background flex items-center justify-center">
+
+<main class="text-center p-6">
+
+<!-- TOP IMAGE -->
+<img id="topImage" src="./images/image8.jpg"
+class="rounded-md h-[300px] mx-auto mb-4">
+
+<h1 id="valentineQuestion"
+class="text-4xl font-bold italic text-[#bd1e59] mb-6">
+Will you be my Valentine Thangameyyyy?
+</h1>
+
+<div id="buttonsSection" class="flex justify-center gap-4">
+<button id="yesButton"
+class="bounce px-6 py-3 bg-green-500 text-white rounded-lg text-xl hover:bg-green-400">
+Yes 💖
+</button>
+
+<button id="noButton"
+class="px-6 py-3 bg-red-500 text-white rounded-lg text-xl hover:bg-red-700">
+No 😅
+</button>
+</div>
+
+<!-- YES RESULT SECTION -->
+<div id="yesResult"
+class="hidden flex flex-col items-center mt-6">
+
+<h1 class="text-5xl font-bold text-pink-600 mb-4 animate-bounce">
+Yahhh!!!!!!!! 💖
+</h1>
+
+<img src="./images/image9.gif"
+class="rounded-lg h-[250px] mb-4">
+
+<h2 class="text-2xl font-semibold text-[#bd1e59] mb-4">
+Lubbb uuu thangamayilluuu 💕
+</h2>
+
+<button id="openLetter"
+class="bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-400">
+💌 A Letter For You
+</button>
+
+</div>
+
+</main>
+
+<!-- LETTER MODAL -->
+<div id="letterModal"
+class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
+<div class="bg-white p-6 rounded-xl w-[90%] max-w-md text-center">
+
+<h2 class="text-2xl font-bold text-pink-600 mb-4">
+My Love Letter 💕
+</h2>
+
+<p class="text-gray-800 text-lg leading-relaxed mb-4">
+
+My dearest paatukuttyyy 💖 <br><br>
+
+<span class="font-bold text-black text-xl">I</span> fell for you in a way I never expected… <br><br>
+
+<span class="font-bold text-black text-xl">L</span><span class="text-lg">oving</span> you changed my world in the most beautiful way… <br><br>
+
+<span class="font-bold text-black text-xl">Y</span><span class="text-lg">ou</span> are the best unexpected thing that ever happened to me 💞
+
+<span class="text-lg">If there is one thing I wish to both give and receive for the rest of my life, it is love…not the kind that fades, not the kind that changes —
+but the kind that stays.
+Endless love.
+The way it feels right now.
+The way it feels with you.
+Forever. Always. 💞</span>
+
+</p>
+
+
+<button id="closeLetter"
+class="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-400">
+Close 💕
+</button>
+
+</div>
+</div>
+
+<!-- Perks Modal -->
+<div id="perksModal"
+class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
+<div class="bg-white p-6 rounded-xl w-[90%] max-w-md text-center">
+<h2 class="text-2xl font-bold text-[#bd1e59] mb-3">
+Actually I should explain the perks of being my Valentine 💕
+</h2>
+<p class="text-gray-700 mb-4">
+Let me tell you… Life with me😌
+</p>
+<button id="okButton1"
+class="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-400">
+OK 💖
+</button>
+</div>
+</div>
+
+<!-- Why Modal -->
+<div id="whyModal"
+class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
+<div class="bg-white p-6 rounded-xl w-[95%] max-w-lg">
+
+<h2 class="text-2xl font-bold text-center text-[#bd1e59] mb-4">
+Why you should choose me as Your Valentine?? 💘
+</h2>
+
+<div class="grid grid-cols-2 gap-4">
+
+<div class="bg-green-100 p-4 rounded-lg flex flex-col items-center justify-center">
+<h3 class="font-bold text-green-700 mb-3 text-xl">Pros 💚</h3>
+
+<p id="prosText"
+class="text-lg font-semibold text-gray-700 text-center mb-4">
+🍳 I will cook your fav food like it's my fav language
+</p>
+
+<div class="flex gap-4">
+<button id="prevPros"
+class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-400">
+⬅️
+</button>
+
+<button id="nextPros"
+class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-400">
+➡️
+</button>
+</div>
+</div>
+
+<div class="bg-red-100 p-4 rounded-lg flex items-center justify-center">
+<h3 class="font-bold text-red-600 text-center">
+Cons ❌ <br><br> Nothing!!!!!!!
+</h3>
+</div>
+</div>
+
+<div class="text-center mt-5">
+<button id="finalClose"
+class="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-400">
+Close 💕
+</button>
+</div>
+</div>
+</div>
+
+<script>
+
+const yesButton = document.getElementById("yesButton");
+const noButton = document.getElementById("noButton");
+const yesResult = document.getElementById("yesResult");
+const topImage = document.getElementById("topImage");
+const valentineQuestion = document.getElementById("valentineQuestion");
+const buttonsSection = document.getElementById("buttonsSection");
+
+const perksModal = document.getElementById("perksModal");
+const whyModal = document.getElementById("whyModal");
+const okButton1 = document.getElementById("okButton1");
+const finalClose = document.getElementById("finalClose");
+
+const prosText = document.getElementById("prosText");
+const nextPros = document.getElementById("nextPros");
+const prevPros = document.getElementById("prevPros");
+
+const openLetter = document.getElementById("openLetter");
+const letterModal = document.getElementById("letterModal");
+const closeLetter = document.getElementById("closeLetter");
+
+let prosIndex = 0;
+
+const prosMessages = [
+"🍳 I will cook your fav food like it's my fav language",
+"🤗 Unlimited hugs",
+"😘 Unlimited kisses",
+"🥰 Unlimited cuddling",
+"🙈 Say no for nothing",
+"👶 Will konjifyy you all the time like my baby",
+"💖 Unlimited caring",
+"🎁 Random cute surprises"
+];
+
+function updatePros() {
+prosText.style.opacity = 0;
+setTimeout(() => {
+prosText.textContent = prosMessages[prosIndex];
+prosText.style.opacity = 1;
+}, 200);
+}
+
+nextPros.addEventListener("click", () => {
+prosIndex = (prosIndex + 1) % prosMessages.length;
+updatePros();
+});
+
+prevPros.addEventListener("click", () => {
+prosIndex = (prosIndex - 1 + prosMessages.length) % prosMessages.length;
+updatePros();
+});
+
+/* NO FLOW (UNCHANGED) */
+noButton.addEventListener("click", () => {
+perksModal.classList.remove("hidden");
+perksModal.classList.add("flex");
+});
+
+okButton1.addEventListener("click", () => {
+perksModal.classList.add("hidden");
+whyModal.classList.remove("hidden");
+whyModal.classList.add("flex");
+});
+
+finalClose.addEventListener("click", () => {
+whyModal.classList.add("hidden");
+});
+
+/* YES FLOW */
+yesButton.addEventListener("click", () => {
+
+topImage.classList.add("hidden");
+valentineQuestion.classList.add("hidden");
+buttonsSection.classList.add("hidden");
+
+yesResult.classList.remove("hidden");
+yesResult.classList.add("flex");
+
+confetti({
+particleCount: 200,
+spread: 140,
+origin: { y: 0.6 }
+});
+
+});
+
+/* LETTER */
+openLetter.addEventListener("click", () => {
+letterModal.classList.remove("hidden");
+letterModal.classList.add("flex");
+});
+
+closeLetter.addEventListener("click", () => {
+letterModal.classList.add("hidden");
+});
+
+</script>
+
+</body>
+</html>
